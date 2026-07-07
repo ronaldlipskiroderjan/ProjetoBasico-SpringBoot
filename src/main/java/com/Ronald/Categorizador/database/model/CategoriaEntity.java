@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "categorias")
@@ -17,19 +18,16 @@ public class CategoriaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private UUID id;
+    private Long id;
 
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false)
     private String descricao;
-
-    @Column(nullable = false)
-    private String type;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
+
+    @OneToMany(mappedBy = "categoriaId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<EventoEntity> eventos = new HashSet<>();
 }
-
-
