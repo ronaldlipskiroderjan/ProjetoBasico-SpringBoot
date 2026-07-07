@@ -17,7 +17,7 @@ public class EventoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private UUID id;
+    private Long id;
 
     @Column(nullable = false)
     private String nome;
@@ -29,4 +29,8 @@ public class EventoEntity {
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private CategoriaEntity categoriaId;
 }
