@@ -134,6 +134,3 @@ Este projeto é de uso pessoal e educacional.
 
 Ronald Roderjan
 
----
-
-Para mais informações ou contribuições, entre em contato através do repositório do projeto.
